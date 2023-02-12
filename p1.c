@@ -27,7 +27,6 @@ int main() {
     pid_t hijo_finalizado = wait(NULL);
     hijos_finalizados++;
     printf("El hijo con ID %d finalizó su ejecución\n", hijo_finalizado);
-    pause();
   }
 
   printf("Todos los hijos han finalizado su ejecución\n");
