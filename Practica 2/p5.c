@@ -14,7 +14,7 @@ int main(){
     int fin = 0;
 
     printf("De Gea ");
-    fflush(stdout);
+    
 
     switch(pid[0]=fork()){
         case -1:         perror ("fork");
@@ -40,9 +40,9 @@ int main(){
                         exit(0);
     }
 
-    fflush(stdout);
+    
     printf("Piqué ");
-    fflush(stdout);
+    
 
     switch(auxThiago=fork()){
         case -1:     perror ("fork");
