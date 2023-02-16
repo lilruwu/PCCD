@@ -21,6 +21,7 @@ int main(){
                         exit(-1);
 
         case 0:         execl("/bin/echo", "echo", "-n", "Carvajal ", NULL); //-n evita imprimir una nueva linea despues de cada nombre
+                        perror("Error al invocar a execl");
                         exit(0);
     }
 
@@ -29,6 +30,7 @@ int main(){
                         exit(-1);
 
         case 0:         execl("/bin/echo", "echo", "-n", "Ramos ", NULL);
+                        perror("Error al invocar a execl");
                         exit(0);
     }
 
@@ -37,6 +39,7 @@ int main(){
                         exit(-1);
 
         case 0:         execl("/bin/echo", "echo", "-n", "Jordi Alba ", NULL);
+                        perror("Error al invocar a execl");
                         exit(0);
     }
 
@@ -48,7 +51,9 @@ int main(){
         case -1:     perror ("fork");
                     exit(-1);
         case 0:     execl("/bin/echo", "echo", "-n", "Thiago ", NULL);
+                    perror("Error al invocar a execl");
                     execl("/bin/echo", "echo", "-n", "Silva ", NULL);
+                    perror("Error al invocar a execl");
                     exit(0);
     }
 
@@ -61,12 +66,16 @@ int main(){
     }
 
     execl("/bin/echo", "echo", "-n", "Busquets ", NULL);
+    perror("Error al invocar a execl");
     execl("/bin/echo", "echo", "-n", "Isco ", NULL);
+    perror("Error al invocar a execl");
     execl("/bin/echo", "echo", "-n", "Aspas ", NULL);
+    perror("Error al invocar a execl");
 
     if(fin==0) wait(NULL);
 
     execl("/bin/echo", "echo", "Morata\n", NULL);
+    perror("Error al invocar a execl");
 
     return 0;
 }
