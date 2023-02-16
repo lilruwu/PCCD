@@ -14,47 +14,47 @@ int main(){
     int fin = 0;
 
     printf("De Gea ");
-    
 
     switch(pid[0]=fork()){
-        case -1:         perror ("fork");
-                        exit(-1);
-
-        case 0:         execl("/bin/echo", "echo", "-n", "Carvajal ", NULL); //-n evita imprimir una nueva linea despues de cada nombre
-                        perror("Error al invocar a execl");
-                        exit(0);
+        case -1:
+            perror("fork");
+            exit(-1);
+        case 0:
+            execl("/bin/echo", "echo", "-n", "Carvajal ", NULL);
+            perror("execl");
+            exit(-1);
     }
 
     switch(pid[1]=fork()){
-        case -1:         perror ("fork");
-                        exit(-1);
-
-        case 0:         execl("/bin/echo", "echo", "-n", "Ramos ", NULL);
-                        perror("Error al invocar a execl");
-                        exit(0);
+        case -1:
+            perror("fork");
+            exit(-1);
+        case 0:
+            execl("/bin/echo", "echo", "-n", "Ramos ", NULL);
+            perror("execl");
+            exit(-1);
     }
 
     switch(pid[2]=fork()){
-        case -1:         perror ("fork");
-                        exit(-1);
-
-        case 0:         execl("/bin/echo", "echo", "-n", "Jordi Alba ", NULL);
-                        perror("Error al invocar a execl");
-                        exit(0);
+        case -1:
+            perror("fork");
+            exit(-1);
+        case 0:
+            execl("/bin/echo", "echo", "-n", "Jordi Alba ", NULL);
+            perror("execl");
+            exit(-1);
     }
 
-    
     printf("Piqué ");
-    
 
     switch(auxThiago=fork()){
-        case -1:     perror ("fork");
-                    exit(-1);
-        case 0:     execl("/bin/echo", "echo", "-n", "Thiago ", NULL);
-                    perror("Error al invocar a execl");
-                    execl("/bin/echo", "echo", "-n", "Silva ", NULL);
-                    perror("Error al invocar a execl");
-                    exit(0);
+        case -1:
+            perror("fork");
+            exit(-1);
+        case 0:
+            execl("/bin/echo", "echo", "-n", "Thiago Silva ", NULL);
+            perror("execl");
+            exit(-1);
     }
 
     while(contador != 3){
@@ -62,20 +62,15 @@ int main(){
 
         if(finHijo==pid[0] || finHijo==pid[1] || finHijo==pid[2]) contador++;
         else if(finHijo==auxThiago) fin=1;
-
     }
 
-    execl("/bin/echo", "echo", "-n", "Busquets ", NULL);
-    perror("Error al invocar a execl");
-    execl("/bin/echo", "echo", "-n", "Isco ", NULL);
-    perror("Error al invocar a execl");
-    execl("/bin/echo", "echo", "-n", "Aspas ", NULL);
-    perror("Error al invocar a execl");
+    printf("Busquets ");
+    printf("Isco ");
+    printf("Aspas ");
 
     if(fin==0) wait(NULL);
 
-    execl("/bin/echo", "echo", "Morata\n", NULL);
-    perror("Error al invocar a execl");
+    printf("Morata\n");
 
     return 0;
 }
