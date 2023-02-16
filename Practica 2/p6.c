@@ -20,7 +20,7 @@ int main(){
             perror("fork");
             exit(-1);
         case 0:
-            execl("/bin/echo", "echo", "-n", "Carvajal ", NULL);
+            execl("./p6x", "p6x", "-n", "Carvajal ", NULL);
             perror("execl");
             exit(-1);
     }
@@ -30,7 +30,7 @@ int main(){
             perror("fork");
             exit(-1);
         case 0:
-            execl("/bin/echo", "echo", "-n", "Ramos ", NULL);
+            execl("./p6x", "p6x", "-n", "Ramos ", NULL);
             perror("execl");
             exit(-1);
     }
@@ -40,7 +40,7 @@ int main(){
             perror("fork");
             exit(-1);
         case 0:
-            execl("/bin/echo", "echo", "-n", "Jordi Alba ", NULL);
+            execl("./p6x", "p6x", "-n", "Jordi Alba ", NULL);
             perror("execl");
             exit(-1);
     }
@@ -52,7 +52,7 @@ int main(){
             perror("fork");
             exit(-1);
         case 0:
-            execl("/bin/echo", "echo", "-n", "Thiago Silva ", NULL);
+            execl("./p6x", "p6x", "-n", "Thiago Silva ", NULL);
             perror("execl");
             exit(-1);
     }
