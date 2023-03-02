@@ -23,26 +23,35 @@ int main(int argc, char *argv[]) {
     if (puerta == (bool *)(-1)) {
         printf("No se ha podido enlazar el segmento\n");
         return -1;
-    } else {
-        *puerta = false;
-        while (true) {
-            printf("Caminando por mi habitación.\n");
-            getchar();
-            printf("Intentando entrar en mi sección crítica...\n");
-            while (*puerta != proceso) {
-                printf("Puerta cerrada\n");
-                getchar();
-            }
-            printf("Dentro de mi sección crítica\n");
-            getchar();
-            printf("He salido de mi sección crítica\n");
-            getchar();
-            *puerta = !(*puerta);
-            printf("He accionado el pulsador\n");
-        }
     }
+
+    *puerta = false;
+
+    while (true) {
+        printf("Caminando por mi habitación.\n");
+        getchar();
+        printf("Intentando entrar en mi sección crítica...\n");
+        while (*puerta != proceso) {
+            printf("Puerta cerrada\n");
+            getchar();
+        }
+        printf("Dentro de mi sección crítica\n");
+        getchar();
+        printf("He salido de mi sección crítica\n");
+        getchar();
+        *puerta = !(*puerta);
+        printf("He accionado el pulsador\n");
+    }
+
     if (shmdt(puerta) == -1) {
         printf("No se ha podido desenlazar el segmento\n");
+        return -1;
     }
+
+    if (shmctl(id, IPC_RMID, NULL) == -1) {
+        printf("No se ha podido eliminar el segmento\n");
+        return -1;
+    }
+
     return 0;
 }
